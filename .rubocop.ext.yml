@@ -1,0 +1,4 @@
+require:
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-thread_safety
