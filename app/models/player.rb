@@ -29,6 +29,8 @@ class Player < ApplicationRecord
   attribute :gender, GenderType.new
 
   has_many :sessions, dependent: :destroy
+  has_many :claims, dependent: :destroy
+  has_many :offers, through: :claims
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, allow_nil: true, length: { minimum: 12 }

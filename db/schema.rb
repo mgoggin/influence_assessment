@@ -14,6 +14,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_044321) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "claims", force: :cascade do |t|
+    t.bigint "player_id", null: false
+    t.bigint "offer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["offer_id"], name: "index_claims_on_offer_id"
+    t.index ["player_id"], name: "index_claims_on_player_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -43,5 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_044321) do
     t.index ["player_id"], name: "index_sessions_on_player_id"
   end
 
+  add_foreign_key "claims", "offers"
+  add_foreign_key "claims", "players"
   add_foreign_key "sessions", "players"
 end
