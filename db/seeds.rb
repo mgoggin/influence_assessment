@@ -7,6 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+password = "11c178e90ddae2c875314f976f96"
+
+Player
+  .create_with(
+    password:,
+    password_confirmation: password,
+    age: rand(18..120),
+    gender: Gender.all.sample
+  )
+  .find_or_create_by!(email: 'test@example.com')
+
 100.times do
   Offer.create!(
     name: Faker::Lorem.words(number: rand(2..4)),
