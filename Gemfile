@@ -45,6 +45,7 @@ end
 group :development do
   gem "annotate"
   gem "database_consistency", require: false
+  gem "guard-rspec"
   gem "hotwire-livereload"
   gem "letter_opener"
   gem "prettier_print"
