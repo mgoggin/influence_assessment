@@ -17,6 +17,7 @@ gem "pwned"
 
 # Assets/View Extensions
 gem "importmap-rails"
+gem "phlex-rails"
 gem "propshaft"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
