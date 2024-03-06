@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+100.times do
+  Offer.create!(
+    name: Faker::Lorem.words(number: rand(2..4)),
+    description: Faker::Marketing.buzzwords,
+    gender: Gender.all.sample,
+    age_group: AgeGroup.all.sample
+  )
+end
