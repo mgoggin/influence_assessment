@@ -3,10 +3,14 @@ class Identity::PasswordResetsController < ApplicationController
 
   before_action :set_player, only: %i[edit update]
 
+  layout -> { MinimalLayout }
+
   def new
+    render Identity::PasswordResets::NewView
   end
 
   def edit
+    render Identity::PasswordResets::EditView.new(sid: params[:sid])
   end
 
   def create
@@ -23,7 +27,7 @@ class Identity::PasswordResetsController < ApplicationController
     if @player.update(player_params)
       redirect_to sign_in_path, notice: "Your password was reset successfully. Please sign in"
     else
-      render :edit, status: :unprocessable_entity
+      render Identity::PasswordResets::EditView.new(player: @player, sid: params[:sid]), status: :unprocessable_entity
     end
   end
 

@@ -2,13 +2,14 @@ class Identity::EmailsController < ApplicationController
   before_action :set_player
 
   def edit
+    render Identity::Emails::EditView.new(@player)
   end
 
   def update
     if @player.update(player_params)
       redirect_to_root
     else
-      render :edit, status: :unprocessable_entity
+      render render Identity::Emails::EditView.new(@player), status: :unprocessable_entity
     end
   end
 

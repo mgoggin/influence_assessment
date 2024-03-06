@@ -3,11 +3,14 @@ class SessionsController < ApplicationController
 
   before_action :set_session, only: :destroy
 
+  layout -> { MinimalLayout }
+
   def index
     @sessions = Current.player.sessions.order(created_at: :desc)
   end
 
   def new
+    render Sessions::NewView
   end
 
   def create
