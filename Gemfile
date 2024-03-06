@@ -10,6 +10,11 @@ gem "redis", ">= 4.0.1"
 gem "bootsnap", require: false
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
+# Security
+gem "authentication-zero"
+gem "bcrypt", "~> 3.1.7"
+gem "pwned"
+
 # Assets/View Extensions
 gem "importmap-rails"
 gem "propshaft"
